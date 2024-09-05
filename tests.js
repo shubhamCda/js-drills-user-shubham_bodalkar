@@ -1,6 +1,8 @@
-const { playingVdoGames } = require('./solutions');
+const { playingVdoGames, findNationality } = require('./solutions');
 
 const user = require('./users');
 
 
-console.log(playingVdoGames(user));
+console.log(findNationality(user, "Germany"));
+
+//console.log(playingVdoGames(user));
