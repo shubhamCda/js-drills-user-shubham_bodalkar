@@ -50,7 +50,7 @@ function findQualification(users, qualification){
 	let arr = [];
 
 	for (let i = 0; i < usrName.length; i++){
-		usrQualification = users[usrName[i]].qualification;
+		const usrQualification = users[usrName[i]].qualification;
 
 		if (usrQualification === qualification){
 			arr.push(usrName[i]);
@@ -62,7 +62,38 @@ function findQualification(users, qualification){
 	return arr;
 }
 
-module.exports = { findQualification };
+
+function findDesignation(users){
+	let usrDesignation = {
+		"Senior Golang Developer": [],
+		"Intern - Golang": [],
+		"Intern - Javascript": [],
+		"Senior Javascript Developer": [],
+		"Python Developer": []
+	}
+
+	let desigObj = Object.keys(usrDesignation);
+
+	const usrName = Object.keys(users);
+
+	for (let i = 0; i < usrName.length; i++){
+		const usrDesig = users[usrName[i]].desgination;
+		//console.log(usrDesig);
+		
+		for (let j = 0; j < desigObj.length; j++){
+			
+			if (desigObj[j] === usrDesig){
+				usrDesignation[usrDesig].push(usrName[i])
+			}
+			
+		}
+	}
+	return usrDesignation;
+}
+
+module.exports = { findDesignation };
+
+//module.exports = { findQualification };
 
 //module.exports = { findNationality }; 
 
